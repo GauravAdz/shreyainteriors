@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shreya Interior — Crafting Spaces</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-alabaster:#F9F8F4;
+      --bg-warm-greige:#EBE8E1;
+      --charcoal:#333333;
+      --terracotta:#C28E79;
+
+      --ff-heading: 'Playfair Display', serif;
+      --ff-body: 'Montserrat', sans-serif;
+
+      --container: 1200px;
+    }
+
+    /* Reset + base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff-body);
+      color:var(--charcoal);
+      background:var(--bg-alabaster);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .wrap{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header.site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:var(--bg-alabaster);
+      backdrop-filter: blur(4px);
+      border-bottom:1px solid rgba(0,0,0,0.03);
+    }
+
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 20px}
+    .nav-left,.nav-right{display:flex;gap:22px;align-items:center}
+
+    .nav-left a,.nav-right a{font-weight:500;color:var(--charcoal);font-size:15px}
+
+    .brand{
+      font-family:var(--ff-heading);
+      letter-spacing:2px;
+      font-weight:600;
+      font-size:22px;
+      text-transform:uppercase;
+    }
+
+    /* HERO */
+    .hero{
+      position:relative;
+      overflow:hidden;
+    }
+    .hero .hero-image{
+      width:100%;height:72vh;min-height:520px;background-size:cover;background-position:center center;filter:brightness(.7);
+      display:flex;align-items:center;justify-content:center;
+    }
+
+    .hero .overlay{
+      position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none
+    }
+
+    .hero-inner{max-width:980px;text-align:center;padding:40px 20px;color:var(--bg-alabaster);pointer-events:auto}
+    .hero h1{font-family:var(--ff-heading);font-size:64px;margin:0 0 12px;line-height:1.02;color:var(--bg-alabaster);}
+    .hero p{font-size:18px;margin:0 0 26px;opacity:.95}
+
+    .cta-row{display:flex;gap:16px;justify-content:center}
+    .btn{font-weight:700;font-family:var(--ff-body);padding:14px 22px;border-radius:10px;border:0;cursor:pointer}
+    .btn-shop{background:var(--terracotta);color:white}
+    .btn-services{background:transparent;color:var(--bg-alabaster);border:2px solid rgba(255,255,255,0.4)}
+
+    /* Section: Brand Philosophy */
+    .brand-philosophy{background:var(--bg-alabaster);padding:80px 20px;text-align:center}
+    .brand-philosophy .inner{max-width:740px;margin:0 auto}
+    .brand-philosophy h2{font-family:var(--ff-heading);font-size:36px;margin:0 0 16px}
+    .brand-philosophy p{font-size:17px;color:var(--charcoal);opacity:.95}
+
+    /* Fork in the Road */
+    .fork{display:flex;gap:0;margin:0 auto;max-width:1200px}
+    .fork .pane{flex:1;position:relative;min-height:360px;display:flex;align-items:flex-end}
+    .pane .pane-image{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.85)}
+    .pane .pane-content{position:relative;padding:36px;background:linear-gradient(to top, rgba(0,0,0,0.35), rgba(0,0,0,0));color:var(--bg-alabaster);width:100%}
+    .pane h3{font-family:var(--ff-heading);margin:0 0 12px;font-size:22px}
+    .pane p{margin:0 0 16px}
+    .pane .btn{pointer-events:auto}
+
+    /* Curated Arrivals */
+    .arrivals{padding:64px 20px}
+    .arrivals h3{font-family:var(--ff-heading);font-size:34px;text-align:center;margin:0 0 34px}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto}
+    .product{background:var(--bg-alabaster);padding:18px;text-align:center}
+    .product .img{height:220px;background-size:contain;background-position:center;background-repeat:no-repeat;display:block}
+    .product h4{margin:12px 0 6px;font-weight:600}
+    .product .price{font-family:var(--ff-heading);font-weight:400}
+
+    .product:hover .img{transform:scale(1.03)}
+
+    /* Social Proof */
+    .social-proof{background:var(--bg-warm-greige);display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;padding:56px 20px}
+    .social-proof .proj-image{height:460px;background-size:cover;background-position:center}
+    .testimonial{padding:40px}
+    .testimonial p{font-size:18px;margin:0 0 18px}
+    .testimonial cite{display:block;font-weight:600}
+
+    /* Footer */
+    footer{background:var(--bg-alabaster);padding:48px 20px}
+    .newsletter{max-width:720px;margin:0 auto;text-align:center;padding:18px}
+    .newsletter input[type=email]{padding:12px 14px;border-radius:8px;border:1px solid rgba(0,0,0,0.08);width:320px;max-width:80%}
+    .newsletter button{padding:12px 16px;border-radius:8px;border:0;background:var(--terracotta);color:white;margin-left:8px}
+
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:28px auto 0}
+    .footer-grid h4{margin:0 0 12px;font-size:15px}
+    .social-icons{display:flex;gap:12px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero h1{font-size:44px}
+      .product-grid{grid-template-columns:repeat(2,1fr)}
+      .fork{flex-direction:column}
+      .social-proof{grid-template-columns:1fr}
+      .hero .hero-image{height:56vh}
+    }
+
+    @media (max-width:520px){
+      .nav-inner{padding:12px}
+      .nav-left,.nav-right{gap:12px}
+      .brand{font-size:18px}
+      .hero h1{font-size:32px}
+      .cta-row{flex-direction:column}
+      .btn{width:100%;}
+      .product-grid{grid-template-columns:1fr}
+    }
+
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav-inner">
+      <nav class="nav-left">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="brand">SHREYA INTERIOR</div>
+
+      <nav class="nav-right">
+        <a href="#shop">Shop</a>
+        <a href="#account" title="Account">👤</a>
+        <a href="#cart" id="cart-link" title="Cart">🧺 <span id="cart-count" style="font-weight:600;margin-left:6px">0</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image" id="hero-image" style="background-image:url('background.png')"></div>
+    <div class="overlay">
+      <div class="hero-inner">
+        <h1>Crafting Spaces, Curating Homes.</h1>
+        <p>Elevate your everyday living through full-service design or our hand-picked decor collection.</p>
+        <div class="cta-row">
+          <button class="btn btn-shop" onclick="scrollToSection('shop')">SHOP THE COLLECTION</button>
+          <button class="btn btn-services" onclick="scrollToSection('services')">EXPLORE DESIGN SERVICES</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brand Philosophy -->
+  <section class="brand-philosophy" id="about">
+    <div class="inner">
+      <h2>The Art of Mindful Living.</h2>
+      <p>We believe a home should be a sanctuary that reflects your soul. Whether taking on a complete renovation or searching for that one perfect vase, Shreya Interior brings a calm, curated approach to your environment.</p>
+    </div>
+  </section>
+
+  <!-- Fork in the road -->
+  <section class="fork" aria-label="Choose service or shop">
+    <div class="pane">
+      <div class="pane-image" style="background-image:url('planning.png')"></div>
+      <div class="pane-content">
+        <h3>Interior Design</h3>
+        <p>Bespoke Design Services.</p>
+        <button class="btn" onclick="bookConsultation()">Book a Consultation →</button>
+      </div>
+    </div>
+
+    <div class="pane">
+      <div class="pane-image" style="background-image:url('shop.png')"></div>
+      <div class="pane-content">
+        <h3>The Shop</h3>
+        <p>The Curated Look.</p>
+        <button class="btn" onclick="scrollToSection('shop')">Browse Decor & Furniture →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Arrivals -->
+  <section class="arrivals" id="shop">
+    <h3>New Season Essentials</h3>
+    <div class="product-grid">
+      <div class="product">
+        <div class="img" style="background-image:url('luna-ceramic.png')"></div>
+        <h4>Luna Ceramic Vase</h4>
+        <div class="price">$120.00</div>
+        <button class="btn" style="margin-top:12px" onclick="addToCart('Luna Ceramic Vase')">Add to cart</button>
+      </div>
+
+      <div class="product">
+        <div class="img" style="background-image:url('luna-oatmeal.png')"></div>
+        <h4>Oatmeal Throw</h4>
+        <div class="price">$150.00</div>
+        <button class="btn" style="margin-top:12px" onclick="addToCart('Oatmeal Throw')">Add to cart</button>
+      </div>
+
+      <div class="product">
+        <div class="img" style="background-image:url('terracotta-vase.png')"></div>
+        <h4>Terra Cotta Vase</h4>
+        <div class="price">$80.00</div>
+        <button class="btn" style="margin-top:12px" onclick="addToCart('Terra Cotta Vase')">Add to cart</button>
+      </div>
+
+      <div class="product">
+        <div class="img" style="background-image:url('woven-cushion.png')"></div>
+        <h4>Woven Cushion</h4>
+        <div class="price">$95.00</div>
+        <button class="btn" style="margin-top:12px" onclick="addToCart('Woven Cushion')">Add to cart</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof & Portfolio Mix -->
+  <section class="social-proof" id="projects">
+    <div class="proj-image" style="background-image:url('portfolio.png')"></div>
+    <div class="testimonial">
+      <p>"Shreya has an incredible eye. She transformed our chaotic open-plan living area into a cohesive, peaceful sanctuary. Every piece feels intentional."</p>
+      <cite>— Sarah M., Residential Client</cite>
+      <p style="margin-top:26px"><a href="#portfolio" style="text-decoration:underline">View portfolio</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="newsletter">
+      <strong>Join Our List.</strong>
+      <p>Get design tips, new arrival alerts, and 10% off your first shop order.</p>
+      <form id="newsletter-form" onsubmit="subscribe(event)">
+        <input type="email" id="newsletter-email" placeholder="Email Address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:var(--charcoal)">SHREYA INTERIOR</div>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <div>Furniture<br/>Decor<br/>Lighting<br/>Textiles<br/>Shipping & Returns</div>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <div>Services<br/>Portfolio<br/>About Us<br/>Contact</div>
+      </div>
+      <div>
+        <h4>Social</h4>
+        <div class="social-icons">Instagram &middot; Pinterest</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Basic interactions: smooth scroll, cart counter, simple newsletter feedback
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // Cart simulation
+    let cartCount = 0;
+    function addToCart(name){
+      cartCount++;
+      document.getElementById('cart-count').textContent = cartCount;
+      // little animation
+      const link = document.getElementById('cart-link');
+      link.animate([{transform:'translateY(-4px)'},{transform:'translateY(0)'}],{duration:300});
+      alert(name + ' added to cart');
+    }
+
+    function bookConsultation(){
+      // in a real site you'd open a booking modal. For demo we smooth scroll to contact (not present)
+      alert('Booking enquiry — open contact form or booking modal (demo)');
+    }
+
+    function subscribe(e){
+      e.preventDefault();
+      const email = document.getElementById('newsletter-email').value;
+      if(!email) return;
+      // pretend to send
+      alert('Thanks! ' + email + ' has been added to our list.');
+      document.getElementById('newsletter-form').reset();
+    }
+
+    // Accessibility: reduce motion respect
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.documentElement.style.scrollBehavior = 'auto';
+    }
+  </script>
+
+</body>
+</html>
